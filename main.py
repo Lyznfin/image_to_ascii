@@ -15,12 +15,12 @@ def to_ascii(image: MatLike, /):
 def to_file(ascii_image, /):
     with open("result.txt", "w") as f:
         for row in ascii_image:
-            f.write(' '.join(row) + '\n')
+            f.write('  '.join(row) + '\n')
 
 def main():
     image: MatLike = cv.imread("img/item.png")
     image = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
-    image = cv.resize(image, (150, 150))
+    image = cv.resize(image, (100, 100))
 
     ascii_image = to_ascii(image)
     to_file(ascii_image)
