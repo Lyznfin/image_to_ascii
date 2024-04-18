@@ -20,7 +20,7 @@ def to_file(ascii_image, /):
 def main():
     image: MatLike = cv.imread("img/item.png")
     image = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
-    # image = cv.resize(image, (150, 150))
+    image = cv.resize(image, (200, 125))
 
     ascii_image = to_ascii(image)
     to_file(ascii_image)
