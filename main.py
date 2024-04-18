@@ -12,18 +12,19 @@ def to_ascii(image: MatLike, /):
             new_image[x][y] = pixel
     return new_image
 
-def to_file(ascii_image, /):
-    with open("result.txt", "w") as f:
+def to_file(ascii_image, file_name = "result", /):
+    with open(f"result/{file_name}_to_ascii.txt", "w") as f:
         for row in ascii_image:
             f.write('  '.join(row) + '\n')
 
 def main():
-    image: MatLike = cv.imread("img/item.png")
+    image_name = "venti.jpg"
+    image: MatLike = cv.imread("img/venti.jpg")
     image = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
-    image = cv.resize(image, (100, 100))
+    image = cv.resize(image, (300, 300))
 
     ascii_image = to_ascii(image)
-    to_file(ascii_image)
+    to_file(ascii_image, image_name)
 
     # cv.imshow('item', image)
     # cv.waitKey(0)
